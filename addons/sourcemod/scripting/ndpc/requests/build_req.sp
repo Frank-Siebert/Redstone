@@ -41,7 +41,7 @@ bool CheckBuildingRequest(int client, int team, int spacesCount, const char[] pN
 void bPrintMessage(int client, int team, const char[] pName, const char[] sArgs)
 {
 	//Get the phrases the user is asking for
-	int building = GetBuildingByIndexEx(sArgs);
+	int building = GetBuildingByIndexEx(client, sArgs);
 	int location = GetSpotByIndex(sArgs);
 	int compass = GetCompassByIndex(sArgs);
 	
