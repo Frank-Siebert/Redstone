@@ -23,7 +23,7 @@ bool CheckRepairRequest(int client, int team, int spacesCount, const char[] pNam
 void repPrintMessage(int client, int team, const char[] pName, const char[] sArgs)
 {
 	//Get the building the user is asking for
-	int building = GetBuildingByIndexEx(sArgs);
+	int building = GetBuildingByIndexEx(client, sArgs);
 	int compass = GetCompassByIndex(sArgs);
 	int location = GetSpotByIndex(sArgs);
 		
