@@ -37,8 +37,8 @@ int GetStringSpaceCount(const char[] sArgs)
 	return spaceCount;
 }
 
-// Parse through translations to see if the translation request.
-// See if the request is being made in anther supported language.
+// Parse through translations equal to the client's game language.
+// See if the request is being made in their game language
 int GetTranslatedArrayIndex(int client, const char[] sArgs, const char[] nd_phrase_array, int aSize)
 {
 	// Is the game client language not equal to english?
