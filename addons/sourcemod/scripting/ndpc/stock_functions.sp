@@ -31,3 +31,13 @@ stock bool IsOnTeam(int client, int team) {
 stock bool foundInChatMessage(int item) {
 	return item != -1;
 }
+
+stock char GetLanguageName(int client)
+{
+	char langName[32];
+	
+	char langCode[8];
+	GetLanguageInfo(GetClientLanguage(client), langCode, sizeof(langCode), langName, sizeof(langName));
+	
+	return langName;
+}
