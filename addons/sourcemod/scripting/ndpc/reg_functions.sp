@@ -21,6 +21,7 @@ int Client_GetNext(int team, int index = 1)
 
 #define PRINT_SIZE 128
 #define PHRASE_SIZE 64
+#define PHRASE_NOT_FOUND -1
 
 /* Get the space count in a given chat message (or string) */
 int GetStringSpaceCount(const char[] sArgs)
@@ -34,6 +35,25 @@ int GetStringSpaceCount(const char[] sArgs)
 	}
 	
 	return spaceCount;
+}
+
+//Phrase through translations to see if the translation request is being made in anther language
+int GetTranslatedArrayIndex(int client, const char[] sArgs, const char[] nd_phrase_array, int aSize)
+{
+	if (!StrEqual(GetLanguageName(client), "english", false))
+	{	
+		char phraseName[64];
+		
+		for (int idx = 0; idx < aSize; idx++)
+		{
+			Format(phraseName, sizeof(phraseName), "%T", nd_phrase_array[idx], client);
+			
+			if (StrIsWithin(sArgs, phraseName))
+				return idx;	
+		}
+	}
+	
+	return PHRASE_NOT_FOUND;
 }
 
 stock void NDPC_PrintRequestS0(int team, const char[] pName, const char[] request)
