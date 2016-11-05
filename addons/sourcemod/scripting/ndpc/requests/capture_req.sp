@@ -24,8 +24,8 @@ void cPrintChatMessage(int client, int team, const char[] pName, const char[] sA
 		
 	if (foundInChatMessage(resource))
 	{
-		int compass = GetCompassByIndex(sArgs);	
-		int location = GetSpotByIndexEX(sArgs);
+		int compass = GetCompassByIndex(client, sArgs);	
+		int location = GetSpotByIndexEX(client, sArgs);
 		
 		if (foundInChatMessage(compass))
 			NDPC_PrintRequestS2(team, pName, "Compass Capture Request",
