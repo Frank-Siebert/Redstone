@@ -1,4 +1,3 @@
-#define RESEARCH_NOT_FOUND -1
 #define R_ALIAS_COUNT 3
 
 #define REQUEST_RESEARCH_COUNT 7
@@ -16,7 +15,7 @@ char nd_request_research[REQUEST_RESEARCH_COUNT][] = {
 #define R_ALIAS_COUNT 3
 char nd_research_aliases[REQUEST_RESEARCH_COUNT][R_ALIAS_COUNT][16];
 
-int GetResearchByIndex(const char[] sArgs)
+int GetResearchByIndex(int client, const char[] sArgs)
 {
 	// for normal requests (so they can't be overwritten by alaises
 	for (int research = 0; research < REQUEST_RESEARCH_COUNT; research++) //for all the research
@@ -37,7 +36,7 @@ int GetResearchByIndex(const char[] sArgs)
 		}
 	}
 	
-	return RESEARCH_NOT_FOUND;	
+	return GetTranslatedArrayIndex(client, sArgs, nd_request_research, REQUEST_RESEARCH_COUNT);	
 }
 
 enum {
