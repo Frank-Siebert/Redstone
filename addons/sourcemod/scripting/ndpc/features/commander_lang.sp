@@ -66,13 +66,3 @@ void PrintCLangToTeam(int team, const char[] langName)
 		}
 	}
 }
-
-stock char GetLanguageName(int client)
-{
-	char langName[32];
-	
-	char langCode[8];
-	GetLanguageInfo(GetClientLanguage(client), langCode, sizeof(langCode), langName, sizeof(langName));
-	
-	return langName;
-}
