@@ -37,22 +37,28 @@ int GetStringSpaceCount(const char[] sArgs)
 	return spaceCount;
 }
 
-//Phrase through translations to see if the translation request is being made in anther language
+// Parse through translations to see if the translation request.
+// See if the request is being made in anther supported language.
 int GetTranslatedArrayIndex(int client, const char[] sArgs, const char[] nd_phrase_array, int aSize)
 {
+	// Is the game client language not equal to english?
 	if (!StrEqual(GetLanguageName(client), "english", false))
 	{	
 		char phraseName[64];
 		
+		// For each index in the inputed translation array
 		for (int idx = 0; idx < aSize; idx++)
 		{
+			// Get the phrase string in the clients game language
 			Format(phraseName, sizeof(phraseName), "%T", nd_phrase_array[idx], client);
 			
+			// Check if the chat message contains the phrase string
 			if (StrIsWithin(sArgs, phraseName))
 				return idx;	
 		}
 	}
 	
+	// If it reaches here, we haven't found any translated requests
 	return PHRASE_NOT_FOUND;
 }
 
