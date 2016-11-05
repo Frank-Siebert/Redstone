@@ -23,7 +23,7 @@ bool CheckResearchRequest(int client, int team, int spacesCount, const char[] pN
 void resPrintMessage(int client, int team, const char[] pName, const char[] sArgs)
 {
 	//Get the research the user is asking for
-	int research = GetResearchByIndex(sArgs);
+	int research = GetResearchByIndex(client sArgs);
 		
 	//If a valid research name or alasis is found
 	if (foundInChatMessage(research))
