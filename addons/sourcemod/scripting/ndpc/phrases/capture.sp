@@ -1,6 +1,3 @@
-#define RESOURCE_NOT_FOUND -1
-#define LOCATION_EX_NOT_FOUND - 1
-
 #define REQUEST_CAPTURE_COUNT 3
 char nd_request_capture[REQUEST_CAPTURE_COUNT][] =
 {
@@ -9,7 +6,7 @@ char nd_request_capture[REQUEST_CAPTURE_COUNT][] =
 	"Tert"
 };
 
-int GetCaptureByIndex(const char[] sArgs)
+int GetCaptureByIndex(int client, const char[] sArgs)
 {
 	for (int resource = 0; resource < REQUEST_CAPTURE_COUNT; resource++) //for all the building spots
 	{
@@ -19,7 +16,7 @@ int GetCaptureByIndex(const char[] sArgs)
 		}
 	}
 
-	return RESOURCE_NOT_FOUND;
+	return GetTranslatedArrayIndex(client, sArgs, nd_request_capture, REQUEST_CAPTURE_COUNT);
 }
 
 #define LOCATION_NOT_FOUND -1
@@ -34,7 +31,7 @@ char nd_request_location_ex[REQUEST_LOCATION_EX_COUNT][] =
 	"Pos"
 };
 
-int GetSpotByIndexEX(const char[] sArgs)
+int GetSpotByIndexEX(int client, const char[] sArgs)
 {
 	for (int location = 0; location < REQUEST_LOCATION_EX_COUNT; location++) //for all the building spots
 	{
@@ -44,5 +41,5 @@ int GetSpotByIndexEX(const char[] sArgs)
 		}
 	}
 
-	return LOCATION_EX_NOT_FOUND;
+	return GetTranslatedArrayIndex(client, sArgs, nd_request_location_ex, REQUEST_LOCATION_EX_COUNT);
 }
