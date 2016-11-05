@@ -120,7 +120,7 @@ void createAliasesForBuildings()
 	nd_building_aliases[Command_Bunker][0] = "bunk";
 }
 
-int GetBuildingByIndexEx(const char[] sArgs)
+int GetBuildingByIndexEx(int client, const char[] sArgs)
 {
 	int index = GetBuildingByIndex(sArgs);
 	if (index != BUILDING_NOT_FOUND) { return index; }
@@ -134,5 +134,6 @@ int GetBuildingByIndexEx(const char[] sArgs)
 		}
 	}
 	
-	return BUILDING_NOT_FOUND;
+	// After check for phrases from the client's game language
+	return GetTranslatedArrayIndex(client, sArgs, nd_request_building, REQUEST_BUILDING_COUNT);
 }
