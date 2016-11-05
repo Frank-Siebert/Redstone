@@ -20,7 +20,7 @@ bool CheckCaptureRequest(int client, int team, int spacesCount, const char[] pNa
 
 void cPrintChatMessage(int client, int team, const char[] pName, const char[] sArgs)
 {
-	int resource = GetCaptureByIndex(sArgs);
+	int resource = GetCaptureByIndex(client, sArgs);
 		
 	if (foundInChatMessage(resource))
 	{
