@@ -1,6 +1,3 @@
-#define LOCATION_NOT_FOUND -1
-#define COMPASS_NOT_FOUND -1
-
 // A list of locations by their translation phrase
 #define REQUEST_LOCATION_COUNT 5
 char nd_request_location[REQUEST_LOCATION_COUNT][] =
@@ -12,7 +9,7 @@ char nd_request_location[REQUEST_LOCATION_COUNT][] =
 	"Sec"
 };
 
-int GetSpotByIndex(const char[] sArgs)
+int GetSpotByIndex(int client, const char[] sArgs)
 {
 	for (int location = 0; location < REQUEST_LOCATION_COUNT; location++) //for all the building spots
 	{
@@ -22,7 +19,7 @@ int GetSpotByIndex(const char[] sArgs)
 		}
 	}
 
-	return LOCATION_NOT_FOUND;
+	return GetTranslatedArrayIndex(client, sArgs, nd_request_location, REQUEST_LOCATION_COUNT);
 }
 
 //A list of compass positions by their translation phrase
@@ -37,7 +34,7 @@ char nd_request_compass[REQUEST_COMPASS_COUNT][] =
 	"Right"
 };
 
-int GetCompassByIndex(const char[] sArgs)
+int GetCompassByIndex(int client, const char[] sArgs)
 {
 	for (int compass = 0; compass < REQUEST_COMPASS_COUNT; compass++) //for all the compass locations
 	{
@@ -47,5 +44,5 @@ int GetCompassByIndex(const char[] sArgs)
 		}
 	}
 
-	return COMPASS_NOT_FOUND;
+	return GetTranslatedArrayIndex(client, sArgs, nd_request_compass, REQUEST_COMPASS_COUNT);
 }
