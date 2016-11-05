@@ -42,8 +42,8 @@ void bPrintMessage(int client, int team, const char[] pName, const char[] sArgs)
 {
 	//Get the phrases the user is asking for
 	int building = GetBuildingByIndexEx(client, sArgs);
-	int location = GetSpotByIndex(sArgs);
-	int compass = GetCompassByIndex(sArgs);
+	int location = GetSpotByIndex(client, sArgs);
+	int compass = GetCompassByIndex(client, sArgs);
 	
 	//Cache the result of wether or not a phrase type is found
 	bool foundCompassName = foundInChatMessage(compass);
