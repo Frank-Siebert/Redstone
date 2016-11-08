@@ -1,0 +1,10 @@
+"Updater" {
+  "Information" {
+    "Version" {
+      "Latest" "f6b75db"
+    }
+  }
+  "Files" {
+    "Plugin" "Path_SM/plugins/sbchecker.smx"
+  }
+}

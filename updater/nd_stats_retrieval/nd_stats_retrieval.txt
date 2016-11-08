@@ -1,0 +1,10 @@
+"Updater" {
+  "Information" {
+    "Version" {
+      "Latest" "c8a7e9b"
+    }
+  }
+  "Files" {
+    "Plugin" "Path_SM/plugins/nd_stats_retrieval.smx"
+  }
+}
